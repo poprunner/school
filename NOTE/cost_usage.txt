@@ -1,0 +1,3 @@
+const int i = 2         // i 不能改
+const int *p = &i       // 不能透過p改i X{*p = 4} 但可以改p本身 O{p = q}
+int const *p = &i       // 可以透過p改i O{*p = 4} 但不能改p本身 X{p = q}
