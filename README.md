@@ -6,3 +6,5 @@ NOTE：note
 self try：c++ practice
 
 題庫：NTHU OJ answer
+
+--by 108***220 depart of phys.--
