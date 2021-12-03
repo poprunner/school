@@ -45,6 +45,8 @@ int main()
 	return 0;
 }
 
+
+// 
 /*
 #include <stdio.h>
 int l[5000], r[5000], section[5010], hasout0 = -1, hasout1 = -1;//左位置 右位置 每個位置有幾個守衛守護 被淘汰的守衛 
