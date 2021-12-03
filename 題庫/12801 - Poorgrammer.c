@@ -1,4 +1,4 @@
-/*#include <stdio.h>
+#include <stdio.h>
 int a[(int)2e5+10], n;
 int code(int day)
 {
@@ -29,9 +29,10 @@ int main()
 		else printf("-1\n");
 	}
 	return 0;
-}*/ 
+}
 
-
+// accepted (4/6)
+/*
 #include <stdio.h>
 #include <stdlib.h>
 #define ll long long int
@@ -76,3 +77,4 @@ int main()
 	}
 	return 0;
 }
+*/
