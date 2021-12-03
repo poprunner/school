@@ -1,4 +1,4 @@
-/* 
+
 #include <stdio.h>
 int l[5000], r[5000], section[5010], hasout = -1;//左位置 右位置 每個位置有幾個守衛守護 被淘汰的守衛 
 void out(int q)							//記得要-1不然一開始為0的守衛就會被當成ont的 
@@ -45,8 +45,8 @@ int main()
 	}
 	return 0;
 }
-*/ 
 
+/*
 #include <stdio.h>
 int l[5000], r[5000], section[5010], hasout0 = -1, hasout1 = -1;//左位置 右位置 每個位置有幾個守衛守護 被淘汰的守衛 
 void out(int q,int x)							//記得要-1不然一開始為0的守衛就會被當成ont的 
@@ -95,3 +95,4 @@ int main()
 	}
 	return 0;
 }
+*/
