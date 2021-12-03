@@ -1,8 +1,0 @@
-[1]cd +address      // change directory
-[2]gcc -S +name.c   // build .s file
-[3]gss name.s       // build .exe file
-[4]clear            // clean the terminal information
-
-
-
-
