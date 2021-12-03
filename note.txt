@@ -1,0 +1,157 @@
+[1]tail recursion  編譯時可最佳化
+[2]return (x > 0) ? x : -x;
+    成立->傳?後的值
+    不成立->傳:後的值
+[3]ungetc(n, stdin); 
+    將getchar()字元放回stdin
+[4]指標門牌號碼不能亂給 僅限合法取用
+[5]等價的寫法
+     a[i] <---> *(a+i)
+    &a[i] <--->  (a+i)
+[6]4th/tangram.c  有方向化簡公式
+[7]位元運算
+    & AND   | OR    ^ XOR   ~ NOT   >> RIGHT SHIFT  << LEFT SHIFT
+[8]stdlib.h
+    malloc  free    rand(RAND_MAX==32767)
+[9]memory leak
+    malloc完要free
+[10]NULL==0-->指標  EXIT_FAILURE==1-->exit()
+[11]static  extern
+[12]strcpy  貼上後該字串後面的東西全部消失
+    strncpy 貼上後該字串後面的東西保留
+[13]long sum = 0L   0後加L表此數為long
+[14]"%-10.5d"   - 表靠左對齊
+[15]"*.*s"  前*表總長   後*表要印其中幾個字(從左開始)
+[16]while (scanf("%d", &x) != EOF)
+[17]char *fgets(char *str, int n, FILE *stream)
+    char *fgets(str, sizeof(str), stdin)    可將空格也讀入  遇到\n停止  且會將\n一併讀入
+[18]qsort   <stdlib.h> <---很重要!記得#include進來
+    (1)void qsort(void* base , size_t num , size_t width
+        , int(__cdecl*compare)(const void*,const void*))
+        void qsort( 待排陣列 , 陣列元素數量 , 各元素所占大小
+        , 排法 );
+        void qsort( str , n , sizeof(str[])
+        , cmp );
+    (2)int cmp(const void *a , const void *b)
+        
+        !
+        !   很重要! return 不要用相減的 可能會溢位  請善用大於小於 (>) (<) 避開溢位問題!
+        !
+        
+        /以由小排到大為例/
+        int cmp_int(const void* _a , const void* _b)//引數格式固定
+        {
+            int* a = (int*)_a;//強制型別轉換
+            int* b = (int*)_b;//
+            return *a > *b;
+        }
+        int cmp_int(const void* _a , const void* _b)
+        {
+            int a = *(int*)_a;
+            int b = *(int*)_b;
+            return a > b;　　
+        }
+        回傳正整數互換  0與負整數不換
+[19]float -> int    捨去小數位
+    (int) 1.5 ==  1
+    (int)-1.5 == -1
+[20]if not defined
+    #ifndef *****   //如果此沒被定義
+    *****           //做以下事物
+    #endif
+[21]runtime error   可能是溢位造成  換更大的型別能解決
+[22]布林表達式
+    " \n"[i==n]
+    if i!=n -> [0] -> print " "
+    if i==n -> [1] -> print "\n"
+[23]%c 會吃換行!
+    %c 會吃換行!
+    %c 會吃換行!
+    很重要請記住!!!
+[24]scanf(%*c)  (%*d)   %*(+型別)   表示將該型別字符讀入後捨棄掉
+[25]要印出 \ 反斜線時   記得要  printf("\\");   只有一條不會印出來
+[26]EOF用法
+    請用
+    scanf("%c",&c)!=EOF
+    而不是
+    scanf("%c",&c);  c!=EOF
+    因為字元是沒有表EOF的   函式才會回傳EOF
+    同理  while(c=getchar()!=EOF){}
+
+    ctrl + z + enter  要打在行首才是  EOF  打在行中行末會沒反應  
+[27]#define INF 0x7fffffff(int上限值)
+    INF表無限大
+[28]2000000007=(int)(2e9+7)
+[29]strlen(a) --> O(n) 所以最好把它記在另一個變數裡
+[30](a+b)%MOD == (a%MOD + b%MOD)%MOD
+    (a*b)%MOD == (a%MOD * b%MOD)%MOD
+[31]printf("%*.*f",總長,小數點取幾位,該變數)
+[32]continue 表示直接跳過本次迴圈進入下一次
+[33]Depth-first-search  (dfs)深度優先搜尋
+    int visited[MAX_N];  記錄此點是否拜訪過
+    void dfs(int now,int pa)  now 現在的點  parent 從哪個點過來
+    {
+        visited[i] = 1;
+        for(int i=0;i<n;i++)  遍歷每個點
+        {
+            if(i == now) continue;
+            if(i == pa) continue;
+            if(visited[i]) continue;
+            if(...) dfs(i,now); 建邊
+        }
+    }
+[34]strstr(a,b) 檢查b字串是否在a中
+    若有找到回傳該字串位置
+    若無回傳NULL
+[35]float精確至小數點後6位  (1正負 8指數 23精確度)
+    double精確至小數點後10位    (1正負 11指數 52精確度)
+[36]unsigned
+    unsigned char
+    size_t (輸出為 %zu )
+[37]qsort無法正常運作的原因
+    [18] 有點問題 因為在某些編譯器下
+    要換               須回傳正數
+    不換且與兩者相等    須回傳0
+    不換且與兩者不相等  須回傳負數
+    因此要用減的
+    若要防止溢位比大小:
+        if(a > b) return 1;
+        else if(a == b) return 0;
+        else return -1;
+    即可
+[38]#include <string.h>
+    memset(pointer of a,0/-1,sizeof(a));
+[39]!**超重要**!
+    位元運算 1 預設是 "int" 所以最多 << 31(32位元)
+    若要用long long int 記得要先轉型 (ll)1 << 63(64位元) 否則會溢位
+    !**超重要**!
+[40]union
+    跟struct很像 不過內容是共用記憶體 一次只會記其中一種東西
+    ex: union data{int x; char c;}; 要馬記 int 要馬記 char 不能同時記兩種
+[41]static 呼叫函式結束也不會重置其值 (預設值為0)
+    ex: int count(void){static int cnt; cnt++; return cnt;}
+    一直呼叫會得到遞增數列 1 2 3 4 5 ...
+[42]#include <limits.h>
+[43]FILE *fout = fopen("file name","w");
+[44]fgets(a,sizeof(a),stdin);           // 因為fgets會連enter都一起讀進來
+    len = strlen(a);
+    if(len > 0 && a[len-1] == '\n'){
+        len--;
+        a[len] = '\0';
+    }
+[45](N-1)%MOD+1 可造出 1~N   的答案  代MOD從餘0變成餘MOD
+     N   %MOD   可造出 0~N-1 的答案
+[46]#ifndef 'NAME'
+    #define 'NAME'
+    ...
+    #endif
+[47]c = fgetc(stdin)
+[48]_exit()/exit() 主要區別是一個退出程序會清理I/O緩衝區，一個直接結束程序進入到核心中。
+    exit(0); 正常退出
+    exit(1); 異常退出
+[49]int atoi(const char *str) 將數字字串轉成整數
+[50]stderr (錯誤)
+[51]isspace/isalpha/isdigit
+[52]asm(...);
+[53]getline(cin, str) 讀一整行
+[54]
