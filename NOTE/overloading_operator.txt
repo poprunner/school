@@ -1,0 +1,8 @@
+Expression	As member function	    As non-member function
+@a	        (a).operator@ ( )	    operator@ (a)
+a@b	        (a).operator@ (b)	    operator@ (a, b)
+a=b	        (a).operator= (b)	    cannot be non-member
+a(b...)	    (a).operator()(b...)	cannot be non-member
+a[b]	    (a).operator[](b)	    cannot be non-member
+a->	        (a).operator->( )	    cannot be non-member
+a@	        (a).operator@ (0)	    operator@ (a, 0)
