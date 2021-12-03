@@ -1,4 +1,4 @@
-/*#include <stdio.h>
+#include <stdio.h>
 int main()
 {
 	int t, A, B, C, D, z, l_x, l_y, r_x, r_y;//l_x l_y 為圖左上交點  r_x r_y 為圖右下交點  
@@ -22,7 +22,7 @@ int main()
 		cnt = 0;
 	}
 	return 0;
-}*/
+}
 
 
 /*
@@ -69,7 +69,8 @@ int main()
 }
 */
 
-
+// wrong
+/*
 #include <stdio.h>
 int main()
 {
@@ -113,3 +114,4 @@ int main()
 	}
 	return 0;
 }
+*/
