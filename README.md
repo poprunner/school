@@ -1,12 +1,8 @@
 # school
 程式設計
 
-+ NOTE
+NOTE：note
 
-筆記
-+ self try
+self try：c++ practice
 
-c++練習
-+ 題庫
-
-清大OJ練習
+題庫：NTHU OJ answer
