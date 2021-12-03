@@ -1,0 +1,34 @@
+private
+protected
+public
+
+
+
+volitile
+friend
+explicit
+
+If a class has a virtual function, it needs a virtual destructor.
+virtual destructor :
+virtual ~Class_name() {}
+
+
+
+c++ 
+struct A{
+    A *a; // struct A, the word "struct" can be omitted
+}
+
+
+shared_ptr
+make_shared
+
+
+
+Big Five(The Rule of Five)
+copy constructor | copy assignment | destructor | move constructor | move assignment
+
+
+
+override : 覆寫virtual function
+final : this function cannot be overrided
